@@ -1,0 +1,12 @@
+
+#redis
+spring:
+   redis:
+     host: r-bp1e0ij9ss3dbzqnrj.redis.rds.aliyuncs.com
+     port: 6379
+     password: Pugongying2019
+     pool:
+       max-active: 100
+       max-idle: 10
+       max-wait: 100000
+       timeout: 0

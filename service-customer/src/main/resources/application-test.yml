@@ -1,0 +1,11 @@
+
+
+# 加载的配置文件
+spring.profiles.include: redis-test, base-test
+
+spring:
+  #配置数据源
+  datasource:
+    url: jdbc:mysql://47.99.143.121:3306/pgy_platform_user?useUnicode=true&characterEncoding=utf8
+    username: root
+    password: Hjn184736351

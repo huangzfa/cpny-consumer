@@ -1,0 +1,22 @@
+
+server:
+  port: 8080
+spring:
+  application:
+    name: service-zuul
+  http:
+      encoding:
+        charset: UTF-8
+        enabled: true
+        force: true
+  profiles:
+    active: dev
+
+zuul:
+  sensitiveHeaders: Authorization
+  ignored-headers: Access-Control-Allow-Credentials,Access-Control-Allow-Origin,Vary,X-Frame-Options
+  routes:
+    service-customer:
+      path: /customer/**
+      serviceId: service-customer
+

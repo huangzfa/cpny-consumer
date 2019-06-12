@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cpny.customer.dao.PgyUserDao">
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, product_id AS productId, app_id AS appId, global_user_id AS globalUserId, user_name AS userName, user_name_md5 AS userNameMd5, user_name_encrypt AS userNameEncrypt, pwd, salt, channel_id AS channelId, add_time AS addTime, modify_time AS modifyTime, is_delete AS isDelete
+    </sql>
+
+</mapper>

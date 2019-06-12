@@ -1,0 +1,4 @@
+
+
+# 加载的配置文件
+spring.profiles.include: redis-prod,base-prod
