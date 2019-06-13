@@ -43,6 +43,9 @@ public class Consts {
 
     public static final Integer INT_ONE = 1;
 
+    //分页大小
+    public static final Integer pageSize = 15;
+
 
     //还款锁key
     public static final String REPAY_LOCK_KEY = "lock_repay_";

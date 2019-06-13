@@ -9,21 +9,6 @@ eureka:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
 
-#超时设置
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            # 超时时间> ribbon超时时间*3
-            timeoutInMilliseconds: 12001
-
-ribbon:
-  ReadTimeout: 3000
-  ConnectTimeout: 3000
-
-
 # 自定义配置
 pgy:
   # 业务配置

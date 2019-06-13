@@ -1,6 +1,9 @@
 package com.cpny.customer.service.impl;
 
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cpny.common.cache.Cache;
 import com.cpny.common.constant.Consts;
 import com.cpny.common.entity.UserLoginCacheInfo;
@@ -60,8 +63,11 @@ public class PgyUserServiceImpl extends ServiceImpl<PgyUserDao, PgyUser> impleme
     @Override
     public UserLoginResp login(UserLoginDto reqParam){
 
-        PgyUser loginUser = new PgyUser().setUserNameEncrypt("c+ErKv/Bc9/h5FnPDZlz/w==");
-        loginUser = userDao.selectOne(loginUser);
+        //3.x支持Lambda表达式
+        QueryWrapper<PgyUser> queryWrapper = new QueryWrapper<>();
+        queryWrapper.lambda().eq(PgyUser::getUserNameEncrypt, "c+ErKv/Bc9/h5FnPDZlz/w==")
+                .eq(PgyUser::getIsDelete,Consts.INT_ZERO);
+        PgyUser loginUser = userDao.selectOne(queryWrapper);
         if( loginUser == null ){
             //注册
             loginUser = register(reqParam);
@@ -130,4 +136,20 @@ public class PgyUserServiceImpl extends ServiceImpl<PgyUserDao, PgyUser> impleme
         }
         return userLoginCacheInfo;
     }
+
+    /**
+     * 分页查询
+     * @param page
+     * @return
+     */
+    @Override
+    public IPage<PgyUser> getUserList(Integer page){
+        IPage<PgyUser> list = new Page<>(page,Consts.pageSize);
+        return userDao.selectPage(list,new QueryWrapper<PgyUser>()
+                .select(PgyUser.ID,PgyUser.PRODUCT_ID)//查询部分字段
+                .lambda()
+                .eq(PgyUser::getIsDelete,Consts.INT_ZERO));//查询条件
+
+    }
+
 }

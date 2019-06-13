@@ -1,7 +1,7 @@
 package com.cpny.customer.dao;
 
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.cpny.customer.entity.PgyUser;
-import com.baomidou.mybatisplus.mapper.BaseMapper;
 
 /**
  * <p>

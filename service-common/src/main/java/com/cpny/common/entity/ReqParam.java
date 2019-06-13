@@ -1,7 +1,6 @@
 package com.cpny.common.entity;
 
 import com.alibaba.fastjson.JSON;
-import com.github.pagehelper.PageHelper;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,9 +31,5 @@ public class ReqParam<T extends ReqParam<T>> implements Serializable {
 		return JSON.toJSONString(this);
 	}
 
-	public  T openPaging(){
-		PageHelper.startPage(curPage,pageSize,true, false, false);
-		return (T)this;
-	}
 
 }

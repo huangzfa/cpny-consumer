@@ -10,9 +10,6 @@ import org.springframework.stereotype.Component;
 @Component
 public class ComSystemConfig {
 
-    /** 回调地址 */
-    public static String callbackUrl;
-
     /**  环境: prod:生产.*/
     public static String environment;
 
@@ -29,9 +26,5 @@ public class ComSystemConfig {
         ComSystemConfig.isDev = "dev".equals(environment);
     }
 
-    @Value("${pgy.service.callback.url}")
-    public void setCallbackUrl(String callbackUrl) {
-        ComSystemConfig.callbackUrl = callbackUrl;
-    }
 
 }

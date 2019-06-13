@@ -9,20 +9,6 @@ eureka:
     prefer-ip-address: true
     instance-id: ${spring.cloud.client.ip-address}:${server.port}
 
-#超时设置
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 3000
-
-ribbon:
-  ReadTimeout: 3000
-  ConnectTimeout: 3000
-
-
 # 自定义配置
 pgy:
   # 业务配置
@@ -30,25 +16,3 @@ pgy:
     # 业务地址
     host: http://tapi.huashuangtec.com
 
-  # 资金配置
-  ups:
-    # 域名
-    url: http://trc.lechuangtec.com
-    # 调用超时时间
-    timeOutMillis: 5000
-    # 私钥
-    privateKey: MIICdgIBADANBgkqhkiG9w0BAQEFAASCAmAwggJcAgEAAoGBAKT/dzJQML7oeL7JDRjS55kzTOaK90IM3cyc/1bgZxdOp52u3slk2/9E+F6OI5viTA1JIKuMXPf5+r75l4XVbjM6NSh5RKzmRsZMrrIuHQNmu8w4G81pmAHsxkKJBcAd/k14tKFFlBVXyUydhd9A/Se4P/uLX6EcoDEHZ8igfAulAgMBAAECgYBUyo/nxDv4r6D1cn6PhjrMiQd45mtAfzowX3H8pF92I86Rgv8sge9olHoKpYL5JectYKowXnacXNOV9s/+T/tL9iANkVFCP+kgS97pjYiJORC/5bY+jdGAZSNYXDQo4811nLLJNvrLdLkuEJi8MVumALhNKgpVnSgv+iLjTk7itQJBAN9/vhzs66MZVFFn+tIzBMzRaqcy1Jn+1HsEOsXhh2JnOxjzqV8i1EMXbT5hXPeyOaWUzSEpxLFJ0FavCseWNW8CQQC8/eMtt++XHUx8Jw/NjQqm8bV8tH3LA7DwmckxXLhuzOZwI45nvQMHS/Uko0xTKQS02FVK1DYaETDWpRq5ew4rAkEAibCSOBHBzbZSGuDbRlpGD8TIVv9auRCkaLEfYD9j/7ynTOT4KHM1n6u0EqU6+CJln1v/z/mCgtJ9tpmaI4GnowJAJaQ3pDp3WNS4EB5DkoAd+AQ6Tn0wdMfmbPVkUhWSklbzKrCaQ2Us/j4NtF9l60ZHLrHLwxyjLevwmz/FI94zgwJAV071tF4Sawv6JgwARJWfzDrK4eQmqqfebMszK0O8mkrzs0gBlepsDmeedQFJhNXMJjHofB5K20bn1zA+C8Q1XQ==
-
-  # 风控配置
-  risk:
-    # 风控域名
-    url: http://47.96.157.18:8080
-    # 调用超时时间
-    timeOutMillis: 5000
-    # 私钥
-    privateKey: MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBANXSVyvH4C55YKzvTUCN0fvrpKjIC5lBzDe6QlHCeMZaMmnhJpG/O+aao0q7vwnV08nk14woZEEVHbNHCHcfP+gEIQ52kQvWg0L7DUS4JU73pXRQ6MyLREGHKT6jgo/i1SUhBaaWOGI9w5N2aBxj1DErEzI7TA1h/M3Ban6J5GZrAgMBAAECgYAHPIkquCcEK6Nz9t1cc/BJYF5AQBT0aN+qeylHbxd7Tw4puy78+8XhNhaUrun2QUBbst0Ap1VNRpOsv5ivv2UAO1wHqRS8i2kczkZQj8vcCZsRh3jX4cZru6NoBb6QTTFRS6DRh06iFm0NgBPfzl9PSc3VwGpdj9ZhMO+oTYPBwQJBAPApB74XhZG7DZVpCVD2rGmE0pAlO85+Dxr2Vle+CAgGdtw4QBq89cA/0TvqHPC0xZaYWK0N3OOlRmhO/zRZSXECQQDj7JjxrUaKTdbS7gD88qLZBbk8c07ghO0qDCpp8J2U6D9baVBOrkcz+fTh7B8LzyCo5RY8vk61v/rYqcgk1F+bAkEAvYkELUfPCGZBoCsXSSiEhXpn248nFh5yuWq0VecJ25uObtqN7Qw4PxOeg9SOJoHkdqehRGJuc9LaMDQ4QQ4+YQJAJaIaOsVWgV2K2/cKWLmjY9wLEs0jN/Uax7eMhUOCcWTLmUdRSDyEazOZWHhJRATmKpzwyATQMDhLrdySvGoIgwJBALusECkz5zT4lIujwUNO30LlO8PKPCSKiiQJk4pN60pv2AFX4s2xVdZlXsFJh6btIJ9CGrMvEmogZTIGWq1xOFs=
-
-  service:
-    callback:
-      #回调接口地址
-      url: http://47.97.174.157:8088

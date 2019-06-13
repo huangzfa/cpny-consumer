@@ -8,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
@@ -51,6 +50,17 @@ public class PgyUserController {
     @PostMapping(value = "/login")
     public Object login(@Valid @RequestBody UserLoginDto userLoginDto) {
         return userService.login(userLoginDto);
+    }
+
+    /**
+     * 分页查询
+     * @param page
+     * @return
+     */
+    @RespParamHandler
+    @PostMapping(value = "/getUserList")
+    public Object getUserList(Integer page) {
+        return userService.getUserList(page);
     }
 }
 

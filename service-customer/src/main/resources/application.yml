@@ -13,9 +13,23 @@ spring:
 
 feign.hystrix.enabled: true
 
+#超时设置
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 12001
+
+ribbon:
+  ReadTimeout: 3000
+  ConnectTimeout: 3000
+
 #日志级别
 logging.level.root: info
 
+#mybaties 配置
 mybatis-plus:
   #指定mybatis映射文件的地址
   mapper-locations: classpath*:/mapper/**/*.xml
@@ -37,6 +51,9 @@ mybatis-plus:
       #逻辑删除配置（下面3个配置）
       logic-delete-value: 0
       logic-not-delete-value: 1
+      # 指定mybaties 数据库类型
+      db-config:
+        db-type: mysql
       #自定义SQL注入器
       #sql-injector: com.baomidou.mybatisplus.mapper.LogicSqlInjector
       #自定义填充策略接口实现
